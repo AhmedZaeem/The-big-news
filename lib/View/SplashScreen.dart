@@ -1,4 +1,4 @@
-import 'package:big_news/View/HomeView.dart';
+import 'package:big_news/View/HomeView/HomeView.dart';
 import 'package:big_news/helpers/NavigationHelper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gradient_animation_text/flutter_gradient_animation_text.dart';
