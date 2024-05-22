@@ -11,7 +11,6 @@ class MyApp extends StatelessWidget {
         textTheme: TextTheme(
           displayLarge: TextStyle(
             fontFamily: 'Newtype'
-
           ),
         ),
       ),
