@@ -10,6 +10,18 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text.rich(
+          TextSpan(
+            children: [
+              TextSpan(text: 'Big',style: Theme.of(context).textTheme.titleSmall),
+              TextSpan(text: 'News',style: Theme.of(context).textTheme.titleSmall!.copyWith(color: Colors.deepPurple[300])),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

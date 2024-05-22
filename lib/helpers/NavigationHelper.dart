@@ -5,6 +5,9 @@ mixin Navigationhelper{
   if (withReplace) {
     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => to));
   }
+  else{
     Navigator.push(context, MaterialPageRoute(builder: (context) => to));
+
+  }
   }
 }
