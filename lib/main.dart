@@ -1,5 +1,5 @@
 import 'package:big_news/providers/category_provider.dart';
-import 'package:big_news/view/SplashScreen.dart';
+import 'package:big_news/view/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
