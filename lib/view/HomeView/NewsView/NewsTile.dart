@@ -16,7 +16,8 @@ class NewsTile extends StatelessWidget {
           CachedNetworkImage(
             imageUrl: newsTile.image,
             width: 100.w,
-            placeholder: (context, url) => const CircularProgressIndicator(),
+            placeholder: (context, url) =>
+                Image.asset('assets/images/loading.gif', width: 100.w),
             errorWidget: (context, url, error) => const Icon(Icons.error),
           ),
           SizedBox(width: 8.w),
