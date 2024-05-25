@@ -1,6 +1,8 @@
+import 'package:big_news/controller/internet_connection_controller.dart';
 import 'package:big_news/model/news_tile_model.dart';
 import 'package:big_news/view/HomeView/HomeView.dart';
 import 'package:big_news/helpers/NavigationHelper.dart';
+import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gradient_animation_text/flutter_gradient_animation_text.dart';
 
@@ -15,8 +17,15 @@ class Splashscreen extends StatefulWidget {
 
 class _SplashscreenState extends State<Splashscreen> with Navigationhelper {
   Future startApp() async {
-    Future.delayed(const Duration(milliseconds: 500),
-        () => jmp(context, to: const HomeView(), withReplace: true));
+    bool connected = await InternetConnectionController().isConnected();
+
+    Future.delayed(const Duration(milliseconds: 500), () {
+      if (connected && mounted) {
+        jmp(context, to: const HomeView(), withReplace: true);
+      } else {
+        print('no wifi');
+      }
+    });
   }
 
   @override
