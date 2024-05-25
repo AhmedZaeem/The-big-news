@@ -43,3 +43,4 @@ app.*.map.json
 /android/app/release
 # Ignore the file
 lib/constants.dart
+.idx/dev.nix
