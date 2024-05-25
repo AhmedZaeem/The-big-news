@@ -4,4 +4,10 @@ class Assets {
 
   static const String fontsNewtype = 'assets/fonts/Newtype.otf';
   static const String imagesBusiness = 'assets/images/business.jpeg';
+  static const String imagesEntertainment = 'assets/images/entertainment.jpg';
+  static const String imagesGeneral = 'assets/images/general.jpg';
+  static const String imagesHealth = 'assets/images/health.jpeg';
+  static const String imagesScience = 'assets/images/science.jpeg';
+  static const String imagesSports = 'assets/images/sports.jpg';
+  static const String imagesTechnology = 'assets/images/technology.jpg';
 }
