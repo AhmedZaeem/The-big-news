@@ -1,10 +1,14 @@
-import 'package:big_news/View/SplashScreen.dart';
+import 'package:big_news/view/SplashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -23,7 +27,7 @@ class MyApp extends StatelessWidget {
               color: Colors.grey[300],
             ),
             titleLarge: TextStyle(
-              fontSize: 18.sp,
+              fontSize: 12.sp,
               fontFamily: 'Newtype',
             ),
             bodySmall: TextStyle(

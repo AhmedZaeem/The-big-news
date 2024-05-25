@@ -1,13 +1,14 @@
-import 'package:big_news/View/HomeView/AppBar.dart';
-import 'package:big_news/View/HomeView/NewsView/NewsView.dart';
+import 'package:big_news/view/HomeView/AppBar.dart';
+import 'package:big_news/view/HomeView/NewsView/NewsView.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../model/news_tile_model.dart';
 import 'CategoryView/CategoryList.dart';
 
 class HomeView extends StatefulWidget {
-  const HomeView({super.key});
-
+  const HomeView({super.key, required this.newsTiles});
+  final List<NewsTileModel> newsTiles;
   @override
   State<HomeView> createState() => _HomeViewState();
 }
@@ -18,7 +19,7 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: MyAppBar(),
+        title: const MyAppBar(),
       ),
       body: CustomScrollView(
         slivers: [
@@ -28,7 +29,7 @@ class _HomeViewState extends State<HomeView> {
               child: CategoryList(),
             ),
           ),
-          NewsView(),
+          NewsView(newsTiles: widget.newsTiles)
         ],
       ),
     );

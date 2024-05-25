@@ -1,4 +1,4 @@
-import 'package:big_news/Model/CategoryModel.dart';
+import 'package:big_news/model/category_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
