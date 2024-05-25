@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import '../../../model/news_tile_model.dart';
 import 'news_tile.dart';
@@ -15,7 +16,12 @@ class NewsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverList(
         delegate: SliverChildBuilderDelegate(
-      (context, index) => NewsTile(newsTile: newsTiles[index]),
+      (context, index) => GestureDetector(
+        onTap: () {
+          
+        },
+        child: NewsTile(newsTile: newsTiles[index]),
+      ),
       childCount: newsTiles.length,
     ));
   }

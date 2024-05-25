@@ -1,6 +1,5 @@
 import 'package:big_news/controller/news_api_controller.dart';
 import 'package:big_news/model/news_tile_model.dart';
-import 'package:big_news/view/HomeView/news_view/news_tile.dart';
 import 'package:big_news/view/place_holders/error_view.dart';
 import 'package:big_news/view/place_holders/loading_data.dart';
 import 'package:flutter/material.dart';
@@ -21,17 +20,15 @@ class _NewsViewState extends State<NewsView> {
     return FutureBuilder(
         future: NewsApiController().getNews(context),
         builder: (context, snapshot) {
-          // if (snapshot.connectionState == ConnectionState.waiting) {
-          //   return const LoadingData();
-          // } else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
-          //   newsTiles = snapshot.data as List<NewsTileModel>;
-          //   return NewsList(newsTiles: newsTiles);
-          // } else if (snapshot.error == 'no internet connection') {
-          //   return const NoWifi();
-          // } else {
-          //   return const ErrorView();
-          // }
-          return ErrorView(wifiError: true);
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const LoadingData();
+          } else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
+            newsTiles = snapshot.data as List<NewsTileModel>;
+            return NewsList(newsTiles: newsTiles);
+          } else {
+            return  ErrorView(wifiError: snapshot.error == 'no internet connection');
+          }
+
         });
   }
 }
