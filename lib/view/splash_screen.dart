@@ -2,7 +2,7 @@ import 'package:big_news/controller/internet_connection_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gradient_animation_text/flutter_gradient_animation_text.dart';
 
-import 'HomeView/HomeView.dart';
+import 'home_view/HomeView.dart';
 
 class Splashscreen extends StatefulWidget {
   const Splashscreen({super.key});

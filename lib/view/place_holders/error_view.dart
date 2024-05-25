@@ -1,7 +1,6 @@
-
 import 'dart:async';
 
-import 'package:big_news/view/HomeView/HomeView.dart';
+import 'package:big_news/view/home_view/HomeView.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gradient_animation_text/flutter_gradient_animation_text.dart';
@@ -16,29 +15,31 @@ class ErrorView extends StatefulWidget {
 }
 
 class _ErrorViewState extends State<ErrorView> {
-  late StreamSubscription<List<ConnectivityResult>> subscription ;
- @override
-initState() {
-  super.initState();
-
-  subscription = Connectivity().onConnectivityChanged.listen((List<ConnectivityResult> result) {
-    if(result.contains(ConnectivityResult.mobile) || result.contains(ConnectivityResult.wifi)){
-      subscription.cancel();
-       Navigator.pushReplacement(context,
+  StreamSubscription<List<ConnectivityResult>>? subscription;
+  @override
+  initState() {
+    super.initState();
+    if (widget.wifiError) {
+      subscription = Connectivity()
+          .onConnectivityChanged
+          .listen((List<ConnectivityResult> result) {
+        if (result.contains(ConnectivityResult.mobile) ||
+            result.contains(ConnectivityResult.wifi)) {
+          subscription!.cancel();
+          Navigator.pushReplacement(context,
               MaterialPageRoute(builder: (context) => const HomeView()));
-      setState(() {
-      
+        }
       });
     }
-  });
-}
+  }
 
-// Be sure to cancel subscription after you are done
-@override
-dispose() {
-  subscription.cancel();
-  super.dispose();
-}
+  @override
+  dispose() {
+    if (widget.wifiError) {
+      subscription!.cancel();
+    }
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -64,27 +65,28 @@ dispose() {
             duration: const Duration(seconds: 3),
           ),
           SizedBox(height: 16.h),
-         Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w),
-                  child: Column(
-                    children: [
-                      Text(
-                       widget.wifiError ? 'Looks like you have no internet connection at the moment please check you connection and try again later'
-                       :  'An unknown error had occurred please try again another time later or contact support'
-                       ,
-                        textAlign: TextAlign.center,
-                        style: Theme.of(context)
-                            .textTheme
-                            .titleMedium!
-                            .copyWith(fontSize: 12.sp),
-                      ),
-                     widget.wifiError? const Icon(
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 16.w),
+            child: Column(
+              children: [
+                Text(
+                  widget.wifiError
+                      ? 'Looks like you have no internet connection at the moment please check you connection and try again later'
+                      : 'An unknown error had occurred please try again another time later or contact support',
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context)
+                      .textTheme
+                      .titleMedium!
+                      .copyWith(fontSize: 12.sp),
+                ),
+                widget.wifiError
+                    ? const Icon(
                         Icons.signal_wifi_connected_no_internet_4,
-                      ) : const SizedBox.shrink(),
-                    ],
-                  ),
-                )
-             
+                      )
+                    : const SizedBox.shrink(),
+              ],
+            ),
+          )
         ],
       ),
     );

@@ -16,12 +16,7 @@ class NewsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverList(
         delegate: SliverChildBuilderDelegate(
-      (context, index) => GestureDetector(
-        onTap: () {
-          
-        },
-        child: NewsTile(newsTile: newsTiles[index]),
-      ),
+      (context, index) => NewsTile(newsTile: newsTiles[index]),
       childCount: newsTiles.length,
     ));
   }

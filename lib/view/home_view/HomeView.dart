@@ -1,5 +1,5 @@
 import 'package:big_news/widgets/app_logo.dart';
-import 'package:big_news/view/HomeView/news_view/news_view.dart';
+import 'package:big_news/view/home_view/news_view/news_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'category_view/category_list.dart';

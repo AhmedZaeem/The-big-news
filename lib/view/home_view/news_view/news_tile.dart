@@ -1,4 +1,5 @@
 import 'package:big_news/model/news_tile_model.dart';
+import 'package:big_news/view/report_page/report_view.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gradient_animation_text/flutter_gradient_animation_text.dart';
@@ -9,13 +10,18 @@ class NewsTile extends StatelessWidget {
   final NewsTileModel newsTile;
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => ReportView(report: newsTile)));
+      },
+      child: Padding(
       padding: EdgeInsets.only(right: 16.w, left: 16.w, bottom: 16.h),
       child: Row(
         children: <Widget>[
           CachedNetworkImage(
             imageUrl: newsTile.image,
             width: 100.w,
+            fit: BoxFit.fitWidth,
             placeholder: (context, url) =>
                 Image.asset('assets/images/loading.gif', width: 100.w),
             errorWidget: (context, url, error) => const Icon(Icons.error),
@@ -25,7 +31,7 @@ class NewsTile extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                SizedBox(height: 8.h),
+                SizedBox(height: 2.h),
                 GradientAnimationText(
                   text: Text(
                     newsTile.title,
@@ -53,6 +59,7 @@ class NewsTile extends StatelessWidget {
           ),
         ],
       ),
+    ),
     );
   }
 }

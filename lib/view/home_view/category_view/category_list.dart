@@ -1,4 +1,4 @@
-import 'package:big_news/view/HomeView/category_view/category_card.dart';
+import 'package:big_news/view/home_view/category_view/category_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';

@@ -27,8 +27,24 @@ class MyApp extends StatelessWidget {
               ),
               titleMedium: TextStyle(
                 fontFamily: 'Newtype',
-                fontSize: 16.sp,
+                fontSize: 18.sp,
                 color: Colors.grey[300],
+              ),
+              bodyLarge: TextStyle(
+                fontSize: 14.sp,
+                fontFamily: 'Newtype',
+                fontWeight: FontWeight.w100,
+              ),
+              bodyMedium: TextStyle(
+                fontSize: 12.sp,
+                wordSpacing: 2,
+                fontWeight: FontWeight.w400,
+              ),
+              displaySmall: TextStyle(
+                fontSize: 10.sp,
+                color: Colors.grey[300],
+                decoration: TextDecoration.underline,
+                fontWeight: FontWeight.w300,               
               ),
               titleLarge: TextStyle(
                 fontSize: 14.sp,
