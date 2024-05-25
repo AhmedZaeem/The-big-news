@@ -15,11 +15,8 @@ class Splashscreen extends StatefulWidget {
 
 class _SplashscreenState extends State<Splashscreen> with Navigationhelper {
   Future startApp() async {
-    NewsApiController().getNews().then((value) {
-      jmp(context,
-          to: HomeView(newsTiles: value as List<NewsTileModel>),
-          withReplace: true);
-    });
+    Future.delayed(const Duration(milliseconds: 500),
+        () => jmp(context, to: const HomeView(), withReplace: true));
   }
 
   @override

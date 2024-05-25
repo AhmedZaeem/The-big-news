@@ -7,8 +7,7 @@ import '../../model/news_tile_model.dart';
 import 'CategoryView/CategoryList.dart';
 
 class HomeView extends StatefulWidget {
-  const HomeView({super.key, required this.newsTiles});
-  final List<NewsTileModel> newsTiles;
+  const HomeView({super.key});
   @override
   State<HomeView> createState() => _HomeViewState();
 }
@@ -29,7 +28,7 @@ class _HomeViewState extends State<HomeView> {
               child: CategoryList(),
             ),
           ),
-          NewsView(newsTiles: widget.newsTiles)
+          const NewsView()
         ],
       ),
     );
