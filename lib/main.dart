@@ -1,11 +1,16 @@
+import 'package:big_news/controller/internet_connection_controller.dart';
 import 'package:big_news/providers/category_provider.dart';
 import 'package:big_news/view/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:get/instance_manager.dart';
 import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
+  Get.put<InternetConnectionController>(InternetConnectionController(),
+      permanent: true);
 }
 
 class MyApp extends StatelessWidget {
@@ -17,7 +22,7 @@ class MyApp extends StatelessWidget {
       designSize: const Size(360, 690),
       builder: (context, child) => ChangeNotifierProvider(
         create: (context) => CategoryProvider(),
-        child: MaterialApp(
+        child: GetMaterialApp(
           theme: ThemeData.dark().copyWith(
             textTheme: TextTheme(
               displayLarge: const TextStyle(fontFamily: 'Newtype'),
@@ -44,7 +49,7 @@ class MyApp extends StatelessWidget {
                 fontSize: 10.sp,
                 color: Colors.grey[300],
                 decoration: TextDecoration.underline,
-                fontWeight: FontWeight.w300,               
+                fontWeight: FontWeight.w300,
               ),
               titleLarge: TextStyle(
                 fontSize: 14.sp,

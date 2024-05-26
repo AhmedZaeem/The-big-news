@@ -12,40 +12,13 @@ class Splashscreen extends StatefulWidget {
 }
 
 class _SplashscreenState extends State<Splashscreen> {
-  startApp() async {
-    bool connected = await InternetConnectionController().isConnected();
-    if (context.mounted) {
-      Future.delayed(const Duration(milliseconds: 500), () {
-        if (connected) {
-          Navigator.pushReplacement(context,
-              MaterialPageRoute(builder: (context) => const HomeView()));
-        } else {
-          showDialog(
-            barrierDismissible: false,
-            context: context,
-            builder: (context) => AlertDialog(
-              title: const Text('No Internet Connection'),
-              content: const Text('Please check your internet connection'),
-              actions: [
-                TextButton(
-                  onPressed: () {
-                    startApp();
-                    Navigator.of(context).pop();
-                  },
-                  child: const Text('Retry'),
-                ),
-              ],
-            ),
-          );
-        }
-      });
-    }
-  }
-
   @override
   void initState() {
     super.initState();
-    startApp();
+    Future.delayed(
+        const Duration(seconds: 2),
+        () => Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const HomeView())));
   }
 
   @override
