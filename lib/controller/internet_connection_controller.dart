@@ -5,15 +5,9 @@ import 'package:get/get.dart';
 
 class InternetConnectionController extends GetxController {
   // Old method
-  Future<bool> isConnected() async {
-    var connectionStatus = await connectivity
-        .checkConnectivity()
-        .then((value) => value.contains(ConnectivityResult.none));
-    if (connectionStatus) {
-      return false;
-    }
-    return true;
-  }
+  Future<bool> get isConnected async => await connectivity
+      .checkConnectivity()
+      .then((value) => !value.contains(ConnectivityResult.none));
 
   //New Method using GetX
   final Connectivity connectivity = Connectivity();
@@ -31,10 +25,8 @@ class InternetConnectionController extends GetxController {
             isDismissible: false,
             icon: const Icon(Icons.signal_cellular_connected_no_internet_0_bar),
           );
-        } else {
-          if (Get.isSnackbarOpen) {
-            Get.closeCurrentSnackbar();
-          }
+        } else if (Get.isSnackbarOpen) {
+          Get.closeCurrentSnackbar();
         }
       },
     );

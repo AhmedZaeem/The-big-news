@@ -19,7 +19,7 @@ class NewsApiController {
         categoryProvider
             .categories[categoryProvider.selectedIndex].categoryTitle;
 
-    if (await InternetConnectionController().isConnected()) {
+    if (await InternetConnectionController().isConnected) {
       try {
         Response response = await dio.get(url,
             options: Options(headers: {'Authorization': token}));
